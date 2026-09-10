@@ -1,0 +1,489 @@
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#fff;color:#111;font-family:Arial,Helvetica,sans-serif;font-size:13px}
+a{color:#064b83;text-decoration:underline}
+.top{height:88px;border-bottom:3px solid #234566;position:relative;background:#fff}
+.brand{position:absolute;left:38px;top:7px;height:76px;display:flex;align-items:center}
+.cap{width:74px;height:74px;border:1px solid #234566;border-radius:50%;position:relative;margin-right:28px;overflow:hidden}
+.cap:before{content:"";position:absolute;left:16px;right:16px;bottom:9px;height:28px;border:4px solid #777;border-bottom:0;border-radius:2px 2px 0 0}
+.cap:after{content:"";position:absolute;left:29px;top:7px;width:16px;height:16px;border-radius:50%;background:#777;box-shadow:0 17px 0 -4px #777}
+.brand-title{font-family:"Times New Roman",serif;font-size:42px;line-height:34px;font-style:italic;color:#c76512;letter-spacing:-1px}
+.brand-sub{display:block;font-family:Georgia,"Times New Roman",serif;font-size:17px;font-style:normal;color:#4a4a4a;letter-spacing:1px;margin-left:82px;margin-top:-1px}
+.toplinks{position:absolute;right:35px;top:7px;font-weight:bold;font-family:"Times New Roman",serif}
+.toplinks a{color:#111;margin-left:25px}
+.quick{position:absolute;right:35px;top:31px;font-weight:bold}
+.quick label{font-size:14px}
+.quick select,.quick input{height:22px;border:1px solid #aaa;background:#f8f8f8;margin-left:5px;padding:1px 5px;font-size:12px}
+.quick input{width:111px}
+.go{border:0;border-radius:50%;background:#2b4b6a;color:white;font-weight:bold;width:31px;height:27px;margin-left:3px}
+
+/* =========================================================
+   GÓRNE MENU
+   ========================================================= */
+
+.nav {
+    height: 35px;
+    padding-left: 1px;
+
+    display: flex;
+    align-items: stretch;
+
+    background: linear-gradient(to bottom, #fafafa 0%, #dddddd 100%);
+    border-bottom: 1px solid #aaa;
+
+    overflow: visible;
+}
+
+.nav a {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    height: 34px;
+
+    padding: 0 18px;
+
+    color: #222;
+    background: linear-gradient(to bottom, #fafafa, #e5e5e5);
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ccc;
+
+    transition: background 0.05s ease;
+}
+
+.nav a:first-child {
+    border-left: 1px solid #ddd;
+}
+
+
+/* =========================================================
+   HOVER — PODŚWIETLENIE ZAKŁADKI
+   ========================================================= */
+
+.nav a:hover {
+    background: #fff;
+    color: #164d79;
+}
+
+
+/* niebieski pasek pod zakładką */
+
+.nav a:hover::after {
+    content: "";
+
+    position: absolute;
+
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+
+    height: 4px;
+
+    background: #294f70;
+}
+
+
+/* =========================================================
+   AKTYWNA ZAKŁADKA
+   ========================================================= */
+
+/*
+   Nie podświetlamy jej na stałe.
+   Pasek pojawia się tylko po najechaniu.
+*/
+
+.nav a.active {
+    position: relative;
+
+    height: 35px;
+    margin-bottom: -1px;
+
+    background: #fff;
+    color: #164d79;
+
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #fff;
+
+    z-index: 5;
+}
+
+.nav a.active::after {
+    display: none;
+}
+.crumb{height:45px;background:#f0f0f0;padding:11px 8px 0;font-family:"Times New Roman",serif;font-weight:bold}
+.crumb a{font-size:12px}
+
+.searchbar{height:56px;position:relative}
+.searchbar .fields{position:absolute;right:37px;top:10px;display:flex;align-items:center;gap:7px;font-weight:bold}
+.searchbar select,.searchbar input{height:20px;border:1px solid #aaa;background:#fafafa;font-size:12px}
+.searchbar input{width:98px;padding:1px 5px}
+.searchbar button{height:23px;padding:1px 10px;font-weight:bold;border:1px solid #888;background:linear-gradient(#fff,#ddd)}
+.info{width:17px;height:17px;border:2px solid #527195;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#527195;font-size:11px;margin-left:9px}
+
+.tabs{margin-left:19px;height:34px}
+.tab{display:inline-block;border:1px solid #aaa;border-bottom:0;height:34px;padding:9px 14px 0;font-weight:bold;background:#fff}
+.tab+ .tab{font-weight:normal;background:#eee;margin-left:-1px}
+
+.panel{margin:0 18px;border:1px solid #aaa;min-height:335px;padding:18px 32px 16px}
+.cols{display:grid;grid-template-columns:1fr 1fr 1fr;column-gap:50px}
+.col a{display:block;margin:10px 0 0 0;font-size:14px}
+.col a:first-child{margin-top:0}
+.col:nth-child(2),.col:nth-child(3){padding-top:37px}
+@media(max-width:900px){
+ .toplinks{display:none}.brand{left:15px}.brand-title{font-size:31px}.brand-sub{font-size:13px;margin-left:60px}
+ .nav a{padding-left:9px;padding-right:9px}.cols{grid-template-columns:1fr 1fr}
+ .col:nth-child(3){padding-top:0}
+}
+
+/* =========================================================
+   CALIFORNIA LEGISLATIVE INFORMATION
+   MAIN CONTENT
+   ========================================================= */
+
+.leginfo-main {
+    width: calc(100% - 90px);
+    margin: 13px 45px 0 45px;
+
+    display: grid;
+    grid-template-columns: 285px minmax(500px, 1fr) 325px;
+    column-gap: 34px;
+
+    color: #162f48;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================================================
+   TODAY'S SCHEDULE
+   ========================================================= */
+
+.schedule-box {
+    height: 549px;
+    background: #eeeeee;
+
+    text-align: center;
+
+    padding-top: 35px;
+}
+
+.schedule-title {
+    color: #b65e0b;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.schedule-date {
+    margin-top: 2px;
+
+    color: #172d43;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   WELCOME — ŚRODEK
+   ========================================================= */
+
+.welcome-content {
+    min-width: 0;
+}
+
+.welcome-content h1 {
+    margin: 2px 0 5px 0;
+    padding: 0 0 2px 0;
+
+    border-bottom: 2px dotted #294c6d;
+
+    color: #162f48;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 25px;
+}
+
+.welcome-content p {
+    margin: 0 0 17px 0;
+
+    color: #172d43;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.welcome-content a {
+    color: #3c566d;
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   SEPARATOR
+   ========================================================= */
+
+.welcome-separator {
+    width: 55%;
+
+    margin: 22px auto 22px auto;
+
+    border-top: 1px solid #dddddd;
+}
+
+
+/* =========================================================
+   CENTER MESSAGE
+   ========================================================= */
+
+.center-message {
+    max-width: 680px;
+
+    margin: 0 auto 17px auto !important;
+
+    text-align: center;
+
+    font-size: 14px;
+    line-height: 1.5 !important;
+}
+
+
+/* =========================================================
+   QUICK SEARCHES
+   ========================================================= */
+
+.quick-search-container {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    column-gap: 70px;
+
+    margin-top: 16px;
+}
+
+.quick-search-box {
+    text-align: center;
+}
+
+.quick-search-box h2 {
+    margin: 0 0 21px 0;
+
+    color: #111;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    font-weight: bold;
+
+    text-align: left;
+}
+
+
+/* pojedynczy wiersz */
+
+.search-row {
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 6px;
+
+    height: 34px;
+
+    white-space: nowrap;
+}
+
+.search-row label {
+    color: #172d43;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.search-row input,
+.search-row select {
+    height: 20px;
+
+    padding: 1px 4px;
+
+    border: 1px solid #c8c8c8;
+
+    background: #fff;
+
+    color: #555;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.search-row input {
+    width: 140px;
+}
+
+.search-row select {
+    width: 132px;
+}
+
+
+/* przycisk Go */
+
+.quick-go {
+    display: block;
+
+    width: 123px;
+    height: 21px;
+
+    margin: 10px auto 0 auto;
+
+    border: 0;
+    border-radius: 12px;
+
+    background: #294f70;
+
+    color: #fff;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 11px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.quick-go:hover {
+    background: #203f5b;
+}
+
+
+/* =========================================================
+   LEGAL NOTICE
+   ========================================================= */
+
+.legal-notice {
+    width: 100%;
+
+    margin-top: 39px;
+
+    padding: 9px 8px;
+
+    border: 1px solid #bdbdbd;
+
+    background: #fff;
+
+    color: #43515e;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+
+    line-height: 1.2;
+}
+
+
+/* =========================================================
+   PRAWA KOLUMNA
+   ========================================================= */
+
+.right-sidebar {
+    padding-top: 1px;
+}
+
+.sidebar-section {
+    margin-bottom: 19px;
+}
+
+.sidebar-section h2 {
+    margin: 0 0 11px 0;
+    padding: 0 0 1px 0;
+
+    border-bottom: 2px dotted #294c6d;
+
+    color: #111;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.sidebar-section a {
+    display: block;
+
+    margin: 0 0 14px 12px;
+
+    color: #425e75;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+
+    text-decoration: underline;
+}
+
+.sidebar-section a:hover {
+    color: #174b70;
+}
+
+
+/* =========================================================
+   STOPKA
+   ========================================================= */
+
+.leginfo-main + footer {
+    width: calc(100% - 90px);
+
+    margin: 0 45px;
+
+    padding: 9px 65px;
+
+    border-top: 1px solid #d3d3d3;
+
+    display: flex;
+
+    gap: 32px;
+
+    background: #fff;
+}
+
+.leginfo-main + footer a {
+    color: #526b80;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .leginfo-main {
+        width: calc(100% - 40px);
+        margin-left: 20px;
+        margin-right: 20px;
+
+        grid-template-columns: 230px minmax(400px, 1fr);
+    }
+
+    .right-sidebar {
+        display: none;
+    }
+
+    .leginfo-main + footer {
+        width: calc(100% - 40px);
+
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}

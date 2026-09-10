@@ -1,0 +1,1 @@
+Otwórz index.html w przeglądarce. Strona jest samodzielna i nie wymaga serwera.
